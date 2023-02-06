@@ -29,6 +29,7 @@ const bypassProxyHosts = [
     "comptia.org",
     "cloudflare.com",
     "github.com",
+    "github.io",
     "google.com",
     "mfdonut.com",
     "microsoft.com",
