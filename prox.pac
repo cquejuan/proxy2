@@ -33,9 +33,9 @@ const bypassProxyHosts = [
     "google.com",
     "mfdonut.com",
     "microsoft.com",
-    "microsoft.us",
-    "microsoftonline.us",
-    "office365.us", // excel.dod.online.office365.us
+    //"microsoft.us",
+    //"microsoftonline.us",
+    //"office365.us", // excel.dod.online.office365.us
     "spotify.com",
     "usaa.com",
     "wgu.edu",
