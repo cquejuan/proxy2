@@ -28,14 +28,15 @@ const bypassProxyHosts = [
     "citi.com",
     "comptia.org",
     "cloudflare.com",
+    "facebook.com",
     "github.com",
     "github.io",
     "google.com",
     "mfdonut.com",
     "microsoft.com",
-    //"microsoft.us",
-    //"microsoftonline.us",
-    //"office365.us", // excel.dod.online.office365.us
+    "microsoft.us",
+    "microsoftonline.us",
+    "office365.us", // excel.dod.online.office365.us
     "spotify.com",
     "usaa.com",
     "wgu.edu",
@@ -46,23 +47,33 @@ const bypassProxyTLDs = [
     "*.gov",
     "*.mil"
 ]
+const d = 'DIRECT';
 function FindProxyForURL(url, host){
     url = url.toLowerCase();
     host = host.toLowerCase();
     if(isPlainHostName(host)){
-        return 'DIRECT';
+        return d;
     }
-    if(isInNet(host, '[1-9]{1,3}.[1-9]{1,3}.[1-9]{1,3}.[1-9]{1,3}', '255.255.255.255')){
-        return 'DIRECT'; 
-    } 
+    //if(dnsDomainIs(host, ".area52.afnoapps.usaf.mil")){
+    //    return d;
+    //}
+    if(shExpMatch(host, "*.area52.afnoapps.usaf.mil")){
+        return d;
+    }
+    //if(isInNet(host, '[1-9]{1,3}.[1-9]{1,3}.[1-9]{1,3}.[1-9]{1,3}', '255.255.255.255')){
+    //    return d; 
+    //} 
+    if(shExpMatch(hostIP, "131.39.*"){
+        return d;
+    }
     for(i = 0; i < bypassProxyTLDs.length; i++){
         if(shExpMatch(host, bypassProxyTLDs[i])){
-            return 'DIRECT';
+            return d;
         }
     }
     for(i = 0; i < bypassProxyHosts.length; i++){
         if(dnsDomainIs(host, bypassProxyHosts[i])){
-            return 'DIRECT';
+            return d;
         }
     }
     try{
